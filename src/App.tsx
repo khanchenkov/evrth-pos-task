@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "antd/dist/reset.css";
+import { Layout, Menu, theme } from "antd";
+import { useNavigate } from "react-router-dom";
+import Pages from "./pages";
+const { Header, Content } = Layout;
 
-function App() {
+const App: React.FC = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  const naviagte = useNavigate();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout className="layout">
+      <Header>
+        <div className="logo" />
+        <Menu
+          onClick={({ key }) => {
+            naviagte(key);
+          }}
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={[window.location.pathname]}
+          items={[
+            { label: "Home", key: "/" },
+            { label: "Task1", key: "/task1" },
+            { label: "Task2", key: "/task2" },
+          ]}
+        />
+      </Header>
+
+      <Content className="content">
+        <div
+          className="site-layout-content"
+          style={{ background: colorBgContainer }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Pages />
+        </div>
+      </Content>
+    </Layout>
   );
-}
+};
 
 export default App;
