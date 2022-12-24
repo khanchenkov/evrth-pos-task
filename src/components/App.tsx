@@ -2,7 +2,7 @@ import React from "react";
 import "antd/dist/reset.css";
 import { Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
-import Pages from "./pages";
+import Pages from "../pages";
 const { Header, Content } = Layout;
 
 const App: React.FC = () => {
