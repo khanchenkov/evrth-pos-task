@@ -26,7 +26,7 @@ const ListItem: React.FC<ListItemProps> = ({
     }
 
     return () => clearInterval(interval);
-  }, [timeIndicator, setTimeIndicator]);
+  }, [timeIndicator, setTimeIndicator, id, removeItem]);
 
   return (
     <li>

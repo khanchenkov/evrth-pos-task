@@ -38,9 +38,6 @@ const TaskOne: React.FC = () => {
     }
 
     const bracketsStr = parentheses + squareBrackets + curlyBrackets;
-
-    console.log(bracketsStr);
-
     const correctBrackets = bracketsStr.match(/\[\]|{}|\(\)/g);
     const incorrectBrackets = bracketsStr.replace(/\[\]|{}|\(\)/g, "");
 
